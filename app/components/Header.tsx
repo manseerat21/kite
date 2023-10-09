@@ -65,7 +65,7 @@ function Header() {
       // @ts-ignore
         src={session.user.image}
         // @ts-ignore
-        onClick={() => router.push('/' + session.user.email)}
+        onClick={() => router.push('/account')}
         alt='user-image'
         width={60}
         height={60}
