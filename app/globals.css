@@ -7,13 +7,6 @@
   --background-color: #F5F5F5; /* Light Gray */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-color: #FFFFFF; /* White */
-    --background-color: #1A1A1A; /* Dark Gray */
-  }
-}
-
 body {
   color: var(--foreground-color);
   background: linear-gradient(

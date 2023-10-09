@@ -59,7 +59,7 @@ function Header() {
   >
     Create
   </button>
-  <div className='ml-auto'>
+  <div className='ml-auto justify-self-center'>
     {session?.user ? (
       <Image
       // @ts-ignore
