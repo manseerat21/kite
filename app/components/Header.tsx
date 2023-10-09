@@ -68,7 +68,7 @@ function Header() {
         alt='user-image'
         width={60}
         height={60}
-        className='rounded-full cursor-pointer'
+        className='rounded-full cursor-pointer ml-auto'
       />
     ) : (
       <button
