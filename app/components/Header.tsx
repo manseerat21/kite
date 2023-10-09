@@ -48,19 +48,18 @@ function Header() {
     className='cursor-pointer'
   />
   <button
-    className='bg-black text-white p-3 px-6 rounded-full text-[25px] hidden md:block'
+    className='bg-black text-white p-3 px-6 rounded-full text-[18px] hidden sm:block'
     onClick={() => router.push('/')}
   >
     Home
   </button>
   <button
-    className='font-semibold p-3 px-6 rounded-full text-[25px]'
+    className='font-semibold p-3 px-6 rounded-full text-[18px] hover:bg-neutral-200'
     onClick={() => onCreateClick()}
   >
     Create
   </button>
-  <div className='ml-auto justify-self-center'>
-    {session?.user ? (
+  {session?.user ? (
       <Image
       // @ts-ignore
         src={session.user.image}
@@ -73,15 +72,12 @@ function Header() {
       />
     ) : (
       <button
-        className='font-semibold p-2 px-4 rounded-full'
+        className='font-semibold p-3 px-4 ml-auto rounded-full text-[18px] hover:bg-neutral-200'
         onClick={() => signIn()}
       >
         Login
       </button>
-    )}
-  </div>
-</div>
-
+    )}</div>
   )
 }
 

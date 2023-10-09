@@ -19,7 +19,7 @@ function PinItem({pin}) {
         </div>
       </div>
       <div>
-      <h2 className='font-bold text-[15px] mb-1 mt-1 line-clamp-2'>{pin.title}</h2>
+      <h2 className='font-bold text-[12px] mt-1 line-clamp-2'>{pin.title}</h2>
       </div>
     </div>
   )
