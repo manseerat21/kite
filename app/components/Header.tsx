@@ -38,7 +38,7 @@ function Header() {
 
   
   return (
-    <div className='flex gap-3 md:gap-2 p-6'>
+    <div className='flex gap-3 md:gap-2 sm:p-3 md:p-4 p-2'>
   <Image
     src='/logo.svg'
     alt='logo'
@@ -54,11 +54,24 @@ function Header() {
     Home
   </button>
   <button
-    className='font-semibold p-3 px-6 rounded-full text-[18px] hover:bg-neutral-200'
+    className='font-semibold p-3 px-6 rounded-full text-[18px] hover:bg-neutral-200 hidden sm:block'
     onClick={() => onCreateClick()}
   >
     Create
   </button>
+  <div className="flex sm:hidden gap-x-2 items-center ml-auto">
+                <button
+                  onClick={() => onCreateClick()}
+                  className="
+                    text-[30px]
+                    text-[#262626] 
+                    cursor-pointer 
+                    hover:text-black
+                    transition
+                    hover:scale-150
+                  "
+                >&#43;</button>
+              </div>
   {session?.user ? (
       <Image
       // @ts-ignore
@@ -68,11 +81,11 @@ function Header() {
         alt='user-image'
         width={60}
         height={60}
-        className='rounded-full cursor-pointer ml-auto'
+        className='rounded-full cursor-pointer sm:ml-auto'
       />
     ) : (
       <button
-        className='font-semibold p-3 px-4 ml-auto rounded-full text-[18px] hover:bg-neutral-200'
+        className='font-semibold p-3 px-4 rounded-full text-[18px] hover:bg-neutral-200 sm:ml-auto'
         onClick={() => signIn()}
       >
         Login

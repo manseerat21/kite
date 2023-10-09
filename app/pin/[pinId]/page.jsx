@@ -75,7 +75,7 @@ function PinDetail({params}) {
         </div>
     </div>
     :null}
-    <div className='p-3'>
+    <div className='p-3 pt-6'>
     <PinList listOfPins={listOfPins} />
     </div>
     </>
