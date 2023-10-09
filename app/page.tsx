@@ -1,7 +1,4 @@
 "use client"
-import Image from 'next/image'
-
-import { useSession, signIn, signOut } from "next-auth/react"
 import { DocumentData, collection, getDocs, getFirestore, query } from 'firebase/firestore';
 import app from './Shared/firebaseConfig';
 import { useEffect, useState } from 'react';
@@ -25,6 +22,7 @@ export default function Home() {
         pinsData.push(doc.data()); // Accumulate data in the temporary array
       });
   
+      // @ts-ignore
       setListOfPins(pinsData); // Set the state once after the loop
     } catch (error) {
       console.error("Error fetching pins:", error);
