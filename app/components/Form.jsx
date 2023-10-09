@@ -57,44 +57,67 @@ function Form() {
    
    
   return (
-    <div className=' bg-white p-16 rounded-2xl '>
-        <div className='flex justify-end mb-6'>
-        <button onClick={() => onSave()} style={{ width: '90px' }} className='bg-[#BFD7EA] p-2 text-neutral-800 font-semibold px-3 rounded-lg'>
-            {loading ? (
-                <div className='text-loading-spinner'></div>
-            ) : (
-                <span>Post</span>
-            )}
-        </button>
-        </div>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
-           
-            <UploadImage setFile={(file)=>setFile(file)} />
+    <div className='bg-white flex-col p-8 rounded-2xl flex-grow'>
+  {/* Use flex-grow to make the content fill the remaining screen */}
+  <div className='flex justify-end mb-6'>
+    <button onClick={() => onSave()} style={{ width: '90px' }} className='bg-[#BFD7EA] p-2 text-neutral-800 font-semibold px-3 rounded-lg hidden lg:block'>
+      {loading ? (
+        <div className='text-loading-spinner'></div>
+      ) : (
+        <span>Post</span>
+      )}
+    </button>
+  </div>
+  <div className='grid grid-cols-1 w-fill lg:grid-cols-3 gap-y-7 lg:gap-x-10 lg:gap-y-0'>
+
+    <UploadImage setFile={(file)=>setFile(file)} />
           
-       <div className="col-span-2">
-       <div className='w-[100%]'>
-        <input type="text" placeholder='Add your title'
-            onChange={(e)=>setTitle(e.target.value)}
-        className='text-[35px] outline-none font-bold w-full
-        border-b-[2px] border-gray-400 placeholder-gray-400'/>
-        <h2 className='text-[12px] mb-8 w-full  text-gray-400'>The first 40 Charaters are 
-        what usually show up in feeds</h2>
-        <UserTag user={session?.user} />
-        <textarea type="text"
-          onChange={(e)=>setDesc(e.target.value)}
-            placeholder='Tell everyone what your pin is about' 
-        className=' outline-none  w-full mt-8 pb-4 text-[14px]
-        border-b-[2px] border-gray-400 placeholder-gray-400'/>
-          <input type="text"
-          onChange={(e)=>setLink(e.target.value)}
-           placeholder='Add a Destination Link' 
-        className=' outline-none  w-full  pb-4 mt-[90px]
-        border-b-[2px] border-gray-400 placeholder-gray-400'/>
-    </div>
-       </div>
-        
+    <div className="col-span-2 flex flex-col">
+      <div className='w-full flex flex-col justify-between h-full'>
+        <div>
+          <input
+            type="text"
+            placeholder='add your title'
+            onChange={(e) => setTitle(e.target.value)}
+            className='text-[25px] outline-none font-bold w-full
+            border-b-[2px] border-gray-400 placeholder-gray-400'
+          />
+          <h2 className='text-[12px] mb-8 w-full  text-gray-400'>the first 40 Charaters are 
+            what usually show up in feeds
+          </h2>
+          <UserTag user={session?.user} />
+          <textarea
+            type="text"
+            onChange={(e) => setDesc(e.target.value)}
+            placeholder='tell everyone what your pin is about' 
+            className='outline-none flex flex-grow w-full lg:mt-8 mb-14 px-2 text-[14px]
+            border-b-[2px] border-gray-400 placeholder-gray-400'
+          />
         </div>
+        <div className='pb-14'>
+          <input
+            type="text"
+            onChange={(e) => setLink(e.target.value)}
+            placeholder='add a destination link' 
+            className='outline-none px-2 w-full flex
+            border-b-[2px] border-gray-400 placeholder-gray-400 mt-auto'
+          />
+        </div>
+      </div>
     </div>
+  </div>
+  <div className='flex justify-end'>
+    <button onClick={() => onSave()} style={{ width: '90px' }} className='bg-[#BFD7EA] p-2 text-neutral-800 font-semibold px-3 rounded-lg lg:hidden'>
+      {loading ? (
+        <div className='text-loading-spinner'></div>
+      ) : (
+        <span>Post</span>
+      )}
+    </button>
+  </div>
+</div>
+
+
   )
 }
 

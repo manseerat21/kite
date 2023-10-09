@@ -38,7 +38,7 @@ function Header() {
 
   
   return (
-    <div className='flex gap-3 md:gap-2 sm:p-3 md:p-4 p-2'>
+    <div className='flex gap-3 md:gap-2 sm:p-3 md:p-4 p-2 md:h-full h-12.5'>
   <Image
     src='/logo.svg'
     alt='logo'
@@ -59,7 +59,7 @@ function Header() {
   >
     Create
   </button>
-  <div className="flex sm:hidden gap-x-2 items-center ml-auto">
+  <div className="flex sm:hidden px-2 items-center ml-auto">
                 <button
                   onClick={() => onCreateClick()}
                   className="
@@ -68,7 +68,7 @@ function Header() {
                     cursor-pointer 
                     hover:text-black
                     transition
-                    hover:scale-150
+                    hover:scale-110
                   "
                 >&#43;</button>
               </div>
@@ -79,8 +79,8 @@ function Header() {
         // @ts-ignore
         onClick={() => router.push('/account')}
         alt='user-image'
-        width={60}
-        height={60}
+        width={50}
+        height={50}
         className='rounded-full cursor-pointer sm:ml-auto'
       />
     ) : (

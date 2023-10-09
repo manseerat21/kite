@@ -13,7 +13,7 @@ function UploadImage({ setFile }) {
   }, [selectedFile]);
 
   return (
-    <div className="h-[450px] bg-[#e9e9e9] rounded-lg">
+    <div className="h-[450px] lg:h-[400px] bg-[#e9e9e9] rounded-lg">
       <label className="m-5 flex flex-col justify-center items-center cursor-pointer h-[90%] border-[2px] border-gray-300 border-dashed rounded-lg text-gray-600">
         {!selectedFile ? (
           <div className="flex items-center flex-col">
