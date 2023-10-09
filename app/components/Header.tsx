@@ -79,9 +79,9 @@ function Header() {
         // @ts-ignore
         onClick={() => router.push('/account')}
         alt='user-image'
-        width={50}
-        height={50}
-        className='rounded-full cursor-pointer sm:ml-auto'
+        width={60}
+        height={60}
+        className='p-1 rounded-full cursor-pointer sm:ml-auto'
       />
     ) : (
       <button
