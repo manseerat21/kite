@@ -76,13 +76,13 @@ function PinItem({ pin }) {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: 'auto',
-      maxWidth: '300px', // Adjust the maximum width as needed
+      width: '250px',
+      maxWidth: '300px',
       padding: '20px',
       height: '230px',
       border: 'none',
       borderRadius: '8px',
-      overflow: 'hidden', // Allow content to overflow if needed
+      overflow: 'hidden',
     },
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -101,7 +101,7 @@ function PinItem({ pin }) {
           <UserTag user={user} />
         </div>
       </div>
-      <div className="flex justify-between items-center mt-2">
+      <div className="flex justify-between items-center mt-0.5">
         <h2 className="font-bold text-[12px] line-clamp-2">{pin.title}</h2>
         <button onClick={openModal} className="hover:text-gray-600 text-gray-800">
           <BsThreeDots size={24} />
