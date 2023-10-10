@@ -1,8 +1,10 @@
 import React from 'react';
 import UserTag2 from '../UserTag2';
-import { IoIosLink } from 'react-icons/io'
+import { IoIosLink } from 'react-icons/io';
+import { useRouter } from 'next/navigation';
 
 function PinInfo({ pinDetail }) {
+  const router = useRouter();
   const user = {
     name: pinDetail.userName,
     email: pinDetail.email,
@@ -11,7 +13,15 @@ function PinInfo({ pinDetail }) {
 
   const openLink = () => {
     if (typeof window !== 'undefined') {
-      window.open(`${pinDetail.link}`);
+      if (pinDetail.link === 'kite-world.vercel.app' || pinDetail.link === 'www.kite-world.vercel.app') {
+        router.push('/');
+      } else {
+        let linkToOpen = pinDetail.link;
+        if (!linkToOpen.startsWith('http://') && !linkToOpen.startsWith('https://')) {
+          linkToOpen = `http://${linkToOpen}`;
+        }
+        window.open(linkToOpen, '_blank');
+      }
     }
   };
 
