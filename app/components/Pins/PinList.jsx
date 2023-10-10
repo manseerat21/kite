@@ -19,7 +19,7 @@ function PinList({ listOfPins }) {
     <div className='px-2 md:px-5
      columns-2 md:columns-3
      lg:columns-4 mb-4
-     xl:columns-6 space-y-3 mx-auto'>
+     xl:columns-5 2xl:columns-6 space-y-3 mx-auto'>
       {shuffledPins.map((item, index) => (
         <div key={index}>
           <PinItem pin={item} />
