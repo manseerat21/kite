@@ -46,7 +46,7 @@ function Form() {
                 postData).then(resp=>{
                     console.log("Saved")
                     setLoading(true);
-                    router.push("/"+account)
+                    router.push("/account")
                 })
                 
             })
