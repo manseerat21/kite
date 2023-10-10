@@ -11,6 +11,7 @@ import Header from '../components/Header';
 
 function Profile() {
   const { data: session } = useSession();
+  console.log(session);
   const db = getFirestore(app);
   const [userInfo, setUserInfo] = useState(null);
   const [listOfPins, setListOfPins] = useState([]);
@@ -28,6 +29,7 @@ function Profile() {
   }, [userInfo]);
 
   const saveUserInfo = async (email) => {
+    console.log(session);
     const userDocRef = doc(db, 'user', email);
     await setDoc(userDocRef, {
       userName: session.user.name,
@@ -40,8 +42,10 @@ function Profile() {
       userImage: session.user.image,
     });
   };
+  console.log(session);
 
   const getUserPins = async (email) => {
+    console.log(session);
     setListOfPins([]);
     const q = query(collection(db, 'kite-post'), where('email', '==', email));
     const querySnapshot = await getDocs(q);
