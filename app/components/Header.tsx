@@ -20,13 +20,35 @@ function Header() {
     if (session?.user) {
       // @ts-ignore
       const userDocRef = doc(db, "user", session.user.email)
+      
       await setDoc(userDocRef, {
         userName: session.user.name,
         email: session.user.email,
         userImage: session.user.image,
+        id: generateUserIDFromName(session.user.name)
       });
     }
   };
+
+  function generateUserIDFromName(name: string | null | undefined) {
+    if (session?.user && name) {
+      if (name.includes(' ')) {
+        const nameArray = name.split(' ');
+        const firstName = nameArray[0] || '';
+        const randomDigits = Math.floor(10 + Math.random() * 90);
+        const userID = `${firstName}${randomDigits}`;
+        const lowercaseUserID = userID.toLowerCase();
+        return lowercaseUserID;
+      } else {
+        const randomDigits = Math.floor(10 + Math.random() * 90);
+        const userID = `${name}${randomDigits}`;
+        const lowercaseUserID = userID.toLowerCase();
+        return lowercaseUserID;
+      }
+    }
+  }
+  
+  
 
   const onCreateClick = () => {
     if (session) {
