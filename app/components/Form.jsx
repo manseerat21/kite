@@ -12,7 +12,7 @@ function Form() {
     const {data:session}=useSession();
     const [title, setTitle] = useState(null);
     const [desc, setDesc] = useState(null);
-    const [link, setLink] = useState(null); 
+    const [link, setLink] = useState("kite-world.vercel.app"); 
     const [file,setFile]=useState();
     const [loading,setLoading]=useState(false);
     const router=useRouter();
@@ -34,7 +34,7 @@ function Form() {
                 const postData={
                     title: title || null,
                     desc: desc || null,
-                    link: link || null,
+                    link: link || "kite-world.vercel.app",
                     image:url,
                     userName:session.user.name,
                     email:session.user.email,
