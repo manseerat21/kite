@@ -15,7 +15,7 @@ function PinTitle({ pinDetail }) {
 
   return (
     <div>
-      <h2 className="text-[25px] mr-auto font-bold">{pinDetail.title}</h2>
+      <h2 className="text-[20px] mr-auto font-bold">{pinDetail.title}</h2>
     </div>
   );
 }
