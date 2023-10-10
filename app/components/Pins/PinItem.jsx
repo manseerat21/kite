@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import UserTag from '../UserTag';
 import Modal from 'react-modal';
 import { BsThreeDots } from 'react-icons/bs';
+import { useRouter } from 'next/navigation';
 
 function PinItem({ pin }) {
+  const router = useRouter();
   const user = {
     name: pin?.userName,
     image: pin?.userImage,
@@ -95,7 +97,7 @@ function PinItem({ pin }) {
 
   return (
     <div className="flex flex-col overflow-auto">
-      <div className="relative before:absolute before:h-full before:w-full before:rounded-3xl before:z-10 hover:before:bg-gray-100 before:opacity-20 cursor-pointer">
+      <div onClick={()=>router.push("/pin/"+pin.id)} className="relative before:absolute before:h-full before:w-full before:rounded-3xl before:z-10 hover:before:bg-gray-100 before:opacity-20 cursor-pointer">
         <Image src={pin.image} alt={pin.title} width={500} height={500} className="rounded-3xl cursor-pointer relative z-0" />
         <div className="user-tag-overlay">
           <UserTag user={user} />
