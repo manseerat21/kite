@@ -8,7 +8,6 @@ import app from '../Shared/firebaseConfig';
 
 function Header() {
   const { data: session } = useSession();
-  
   const router = useRouter();
   const db = getFirestore(app);
 
@@ -19,40 +18,14 @@ function Header() {
   const saveUserInfo = async () => {
     if (session?.user) {
       // @ts-ignore
-      const userDocRef = doc(db, "user", session.user.email)
-      const uniqueid = generateUserIDFromName(session.user.name)
-      console.log("Firestore Document Reference:", userDocRef)
-      
+      const userDocRef = doc(db, "user", session.user.email)      
       await setDoc(userDocRef, {
         userName: session.user.name,
         email: session.user.email,
         userImage: session.user.image,
-        id: uniqueid
-      });
-      console.log('filled')
-      console.log(uniqueid)
-    }
-  };
-
-  function generateUserIDFromName(name: string | null | undefined) {
-    if (session?.user && name) {
-      if (name.includes(' ')) {
-        const nameArray = name.split(' ');
-        const firstName = nameArray[0] || '';
-        const randomDigits = Math.floor(10 + Math.random() * 90);
-        const userID = `${firstName}${randomDigits}`;
-        const lowercaseUserID = userID.toLowerCase();
-        return lowercaseUserID;
-      } else {
-        const randomDigits = Math.floor(10 + Math.random() * 90);
-        const userID = `${name}${randomDigits}`;
-        const lowercaseUserID = userID.toLowerCase();
-        return lowercaseUserID;
-      }
-    }
-  }
-  
-  
+        id: '1234556'
+      });    }
+  };  
 
   const onCreateClick = () => {
     if (session) {
@@ -62,7 +35,6 @@ function Header() {
     }
   }
 
-  
   return (
     <div className='flex gap-3 md:gap-2 sm:p-3 md:p-4 p-2 md:h-full h-12.5'>
   <Image
