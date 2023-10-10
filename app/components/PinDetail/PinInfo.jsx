@@ -11,7 +11,7 @@ function PinInfo({ pinDetail }) {
 
   const openLink = () => {
     if (typeof window !== 'undefined') {
-      window.open(`https://${pinDetail.link}`);
+      window.open(`${pinDetail.link}`);
     }
   };
 

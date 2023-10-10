@@ -10,9 +10,9 @@ import { useRouter } from 'next/navigation'
 
 function Form() {
     const {data:session}=useSession();
-    const [title,setTitle]=useState();
-    const [desc,setDesc]=useState();
-    const [link,setLink]=useState();
+    const [title, setTitle] = useState(null);
+    const [desc, setDesc] = useState(null);
+    const [link, setLink] = useState(null); 
     const [file,setFile]=useState();
     const [loading,setLoading]=useState(false);
     const router=useRouter();
@@ -32,9 +32,9 @@ function Form() {
         }).then(resp=>{
             getDownloadURL(storageRef).then(async(url)=>{
                 const postData={
-                    title:title,
-                    desc:desc,
-                    link:link,
+                    title: title || null,
+                    desc: desc || null,
+                    link: link || null,
                     image:url,
                     userName:session.user.name,
                     email:session.user.email,
