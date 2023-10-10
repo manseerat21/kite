@@ -22,7 +22,6 @@ function Form() {
     const onSave=()=>{
        setLoading(true)
        uploadFile();
-   
 
     }
 
@@ -47,7 +46,7 @@ function Form() {
                 postData).then(resp=>{
                     console.log("Saved")
                     setLoading(true);
-                    router.push("/"+session.user.email)
+                    router.push("/"+account)
                 })
                 
             })
@@ -58,7 +57,6 @@ function Form() {
    
   return (
     <div className='bg-white flex-col p-8 rounded-2xl flex-grow'>
-  {/* Use flex-grow to make the content fill the remaining screen */}
   <div className='flex justify-end mb-6'>
     <button onClick={() => onSave()} style={{ width: '90px' }} className='bg-[#BFD7EA] p-2 text-neutral-800 font-semibold px-3 rounded-lg hidden lg:block'>
       {loading ? (
