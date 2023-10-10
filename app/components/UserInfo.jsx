@@ -6,10 +6,11 @@ import { useRouter } from 'next/navigation';
 function UserInfo({userInfo}) {
     const router=useRouter();
     const {data:session}=useSession()
-    const onLogoutClick=()=>{
-      signOut();
-      router.push("/")
+    const onLogoutClick = async () => {
+      await signOut();
+      router.push("/");
     }
+    
   return (
     <div className='flex flex-col items-center'>
         <Image src={userInfo.userImage}
