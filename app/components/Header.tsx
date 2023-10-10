@@ -20,13 +20,17 @@ function Header() {
     if (session?.user) {
       // @ts-ignore
       const userDocRef = doc(db, "user", session.user.email)
+      const uniqueid = generateUserIDFromName(session.user.name)
+      console.log("Firestore Document Reference:", userDocRef)
       
       await setDoc(userDocRef, {
         userName: session.user.name,
         email: session.user.email,
         userImage: session.user.image,
-        id: generateUserIDFromName(session.user.name)
+        id: uniqueid
       });
+      console.log('filled')
+      console.log(uniqueid)
     }
   };
 
