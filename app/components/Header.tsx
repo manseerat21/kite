@@ -22,8 +22,7 @@ function Header() {
       await setDoc(userDocRef, {
         userName: session.user.name,
         email: session.user.email,
-        userImage: session.user.image,
-        id: '1234556'
+        userImage: session.user.image
       });    }
   };  
 
@@ -75,7 +74,7 @@ function Header() {
       // @ts-ignore
         src={session.user.image}
         // @ts-ignore
-        onClick={() => router.push('/account')}
+        onClick={() => router.push('/'+session.user.email)}
         alt='user-image'
         width={60}
         height={60}
